@@ -70,6 +70,7 @@ puts "Compass.configuration.images_path: #{Compass.configuration.images_path}"
           logical_path  = pathname.relative_path_from(Pathname.new(Compass.configuration.images_path))
 puts "logical_path: #{logical_path}"
 puts "Rails.application.assets: #{Rails.application.assets}"
+puts "Rails.application.assets: #{Rails.application.assets.instance_variable_get(:@environment)}"
           asset         = Rails.application.assets.find_asset(logical_path)
           target        = File.join(Rails.public_path, Rails.application.config.assets.prefix, asset.digest_path)
 puts "target: #{target}"
