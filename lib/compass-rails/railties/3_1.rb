@@ -72,6 +72,7 @@ puts "logical_path: #{logical_path}"
 puts "Rails.application.assets: #{Rails.application.assets}"
 puts "Rails.application.assets: #{Rails.application.assets.instance_variable_get(:@environment)}"
 put "attributes: #{Rails.application.assets.send(:attributes_for, logical_path).inspect}"
+put "search paths: #{Rails.application.assets.send(:attributes_for, logical_path).search_paths.inspect}"
           asset         = Rails.application.assets.find_asset(logical_path)
           target        = File.join(Rails.public_path, Rails.application.config.assets.prefix, asset.digest_path)
 puts "target: #{target}"
