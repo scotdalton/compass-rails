@@ -73,6 +73,7 @@ puts "Rails.application.assets: #{Rails.application.assets}"
           asset         = Rails.application.assets.find_asset(logical_path)
 puts "asset: #{asset}"
           target        = File.join(Rails.public_path, Rails.application.config.assets.prefix, asset.digest_path)
+puts "target: #{target}"
 
           # Adds the asset to the manifest file.
           Sprockets::StaticCompiler.generated_sprites[logical_path.to_s] = asset.digest_path
