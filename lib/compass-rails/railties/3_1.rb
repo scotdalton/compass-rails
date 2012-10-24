@@ -65,14 +65,13 @@ class Rails::Railtie::Configuration
           Rails.application.assets.send(:trail).instance_variable_get(:@entries).delete(File.dirname(filename))
 
           pathname      = Pathname.new(filename)
-warn "pathname: #{pathname}"
-warn "Compass.configuration.images_path: #{Compass.configuration.images_path}"
+puts "pathname: #{pathname}"
+puts "Compass.configuration.images_path: #{Compass.configuration.images_path}"
           logical_path  = pathname.relative_path_from(Pathname.new(Compass.configuration.images_path))
-warn "logical_path: #{logical_path}"
-warn "Rails.application.assets: #{Rails.application.assets}"
-require 'sprockets'
+puts "logical_path: #{logical_path}"
+puts "Rails.application.assets: #{Rails.application.assets}"
           asset         = Rails.application.assets.find_asset(logical_path)
-warn "asset: #{asset}"
+puts "asset: #{asset}"
           target        = File.join(Rails.public_path, Rails.application.config.assets.prefix, asset.digest_path)
 
           # Adds the asset to the manifest file.
